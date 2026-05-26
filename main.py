@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+0#!/usr/bin/env python3
 """
 DiskWala Downloader Bot — Full Featured
 Developer: @anujbyedit
@@ -100,8 +100,8 @@ REQUIRED_CHANNEL_URL      = os.environ.get("REQUIRED_CHANNEL_URL", "https://t.me
 CHANNEL_LINK              = os.environ.get("CHANNEL_LINK", "https://t.me/TeraBox_Support_Anuj_Bot")
 SUPPORT_USERNAME          = os.environ.get("SUPPORT_USERNAME", "TeraBox_Support_Anuj_Bot")
 
-PHOTO_URL = os.environ.get("PHOTO_URL", "")
-DUMMY_URL = os.environ.get("DUMMY_URL", "")
+PHOTO_URL = os.environ.get("PHOTO_URL", "https://n.uguu.se/mEXQnxjh.jpg")
+DUMMY_URL = os.environ.get("DUMMY_URL", "https://n.uguu.se/HVeBBYah.jpg")
 
 UPI_ID   = os.environ.get("UPI_ID", "971916880@ybl")
 UPI_NAME = os.environ.get("UPI_NAME", "ANUJ")
