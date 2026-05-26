@@ -1,5 +1,5 @@
 # DiskWala Downloader Bot — Dependencies
-# Developer: @anujedits76
+# Developer: @anujbyedit
 
 # Telegram
 python-telegram-bot==21.6
@@ -16,6 +16,9 @@ pymongo==4.8.0
 
 # Web server
 flask==3.0.3
+
+# Environment loader
+python-dotenv==1.0.1
 
 # Optional fast event loop
 uvloop==0.20.0; sys_platform != "win32"
