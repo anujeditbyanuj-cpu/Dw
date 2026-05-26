@@ -21,95 +21,153 @@ A powerful Telegram bot to download files from DiskWala and send them directly t
 
 ---
 
-## ⚙️ Environment Variables
+# ⚙️ Environment Variables
 
-Set these in your hosting platform or `.env` file:
+Create a `.env` file and add:
 
-| Variable | Description | Example |
-|---|---|---|
-| `BOT_TOKEN` | Your Telegram bot token | `123456:ABC...` |
-| `BOT_USERNAME` | Bot username without @ | `my_bot` |
-| `API_ID` | Telegram API ID (from my.telegram.org) | `12345678` |
-| `API_HASH` | Telegram API Hash | `abc123...` |
-| `MONGO_DB_URI` | MongoDB connection URI | `mongodb+srv://...` |
-| `DB_CHANNEL` | Channel ID for file storage | `-1001234567890` |
-| `ADMIN_USER_ID` | Main admin Telegram user ID | `123456789` |
-| `ADMIN_IDS` | Comma-separated admin IDs | `123456789,987654321` |
-| `DISKWALA_API_KEY` | DiskWala API key | `69ffffb2...` |
-| `DISKWALA_BASE_URL` | DiskWala API base URL | `https://ddudapidd.diskwala.com/api/v1` |
-| `REQUIRED_CHANNEL_USERNAME` | Channel users must join | `MyChannel` |
-| `REQUIRED_CHANNEL_URL` | Channel invite link | `https://t.me/MyChannel` |
-| `CHANNEL_LINK` | Channel link shown in bot | `MyChannel` |
-| `SUPPORT_USERNAME` | Support contact username | `MySupportBot` |
-| `WEBHOOK_URL` | Webhook URL (optional) | `https://myapp.onrender.com` |
-| `PORT` | Flask server port | `5000` |
-| `UPI_ID` | UPI ID for payments | `xxx@ybl` |
-| `UPI_NAME` | UPI payee name | `ANUJ` |
-| `PHOTO_URL` | Welcome photo URL | `https://...` |
-| `DUMMY_URL` | Replacement image after deletion | `https://...` |
-| `FREE_DOWNLOAD_LIMIT` | Free user download limit | `10` |
-| `SUPPORT_BOT_TOKENS` | Extra bot tokens (comma-separated) | `token1,token2` |
+```env
+# ─────────────────────────────────────────
+# DiskWala Bot — Environment Variables
+# Developer: @anujbyedit
+# ─────────────────────────────────────────
+
+# ── Telegram Bot ──
+BOT_TOKEN=YOUR_BOT_TOKEN
+BOT_USERNAME=your_bot_username
+
+# Webhook URL
+WEBHOOK_URL=
+
+# Port
+PORT=5000
+
+# ── Admin ──
+ADMIN_USER_ID=123456789
+ADMIN_IDS=123456789
+
+# ── Channel Membership Gate ──
+REQUIRED_CHANNEL_USERNAME=YourChannel
+REQUIRED_CHANNEL_URL=https://t.me/YourChannel
+CHANNEL_LINK=YourChannel
+SUPPORT_USERNAME=YourSupportBot
+
+# ── DiskWala API ──
+DISKWALA_API_KEY=YOUR_API_KEY
+DISKWALA_BASE_URL=https://ddudapidd.diskwala.com/api/v1
+
+# ── MongoDB ──
+MONGO_DB_URI=mongodb+srv://username:password@cluster.mongodb.net/?retryWrites=true&w=majority
+DB_CHANNEL=-1001234567890
+
+# ── Pyrogram ──
+API_ID=12345678
+API_HASH=your_api_hash
+
+# Support bot tokens
+SUPPORT_BOT_TOKENS=
+
+# ── Premium / UPI ──
+UPI_ID=example@ybl
+UPI_NAME=ANUJ
+
+# ── Free Limit ──
+FREE_DOWNLOAD_LIMIT=10
+
+# ── Media URLs ──
+PHOTO_URL=https://example.com/photo.jpg
+DUMMY_URL=https://example.com/dummy.jpg
+```
 
 ---
 
-## 📦 Requirements
+# 📦 Requirements
 
-```
+Create `requirements.txt`
+
+```txt
+# DiskWala Downloader Bot — Dependencies
+# Developer: @anujbyedit
+
+# Telegram
 python-telegram-bot==21.6
 pyrogram==2.0.106
 TgCrypto
+
+# HTTP
 httpx[http2]==0.27.0
 requests==2.32.3
+
+# Database
 motor==3.5.1
 pymongo==4.8.0
+
+# Web server
 flask==3.0.3
+
+# Environment loader
 python-dotenv==1.0.1
+
+# Optional fast event loop
 uvloop==0.20.0; sys_platform != "win32"
 ```
 
-Install with:
+Install:
+
 ```bash
-pip install pyrogram python-telegram-bot[webhooks] motor httpx flask uvloop
+pip install -r requirements.txt
 ```
 
 ---
 
-## 🚀 Setup & Run
+# 🚀 Setup & Run
 
-### 1. Clone the repo
+## 1. Clone Repository
+
 ```bash
-git clone anujedits76
+git clone https://github.com/anujedits76/Dw.git
 cd Dw
 ```
-ables
+
+---
+
+## 2. Install Dependencies
+
 ```bash
-export BOT_TOKEN="your_bot_token"
-export API_ID="your_api_id"
-export API_HASH="your_api_hash"
-export MONGO_DB_URI="your_mongodb_uri"
-export DB_CHANNEL="-1001234567890"
-export ADMIN_USER_ID="your_user_id"
-export DISKWALA_API_KEY="your_api_key"
+pip install -r requirements.txt
 ```
 
-### 3. Run the bot
+---
+
+## 3. Run the Bot
+
 ```bash
 python bot.py
 ```
 
 ---
 
-## 🌐 Deploy on Render / Railway / Koyeb
+# 🌐 Deploy on Render / Railway / Koyeb
 
-1. Create new web service
-2. Set all environment variables in the dashboard
-3. Set start command: `python bot.py`
-4. Set `WEBHOOK_URL` to your app's public URL
-5. Deploy!
+1. Create new Web Service
+2. Upload repository
+3. Add all environment variables
+4. Start command:
+
+```bash
+python bot.py
+```
+
+5. Add public URL in:
+
+```env
+WEBHOOK_URL=https://your-app.onrender.com
+```
+
+6. Deploy 🚀
 
 ---
 
-## 📋 Bot Commands
+# 📋 Bot Commands
 
 | Command | Description | Access |
 |---|---|---|
@@ -126,7 +184,7 @@ python bot.py
 
 ---
 
-## 💎 Premium Plans
+# 💎 Premium Plans
 
 | Plan | Price | Duration |
 |---|---|---|
@@ -138,9 +196,9 @@ python bot.py
 
 ---
 
-## 🔗 Supported DiskWala Link Formats
+# 🔗 Supported DiskWala Links
 
-```
+```txt
 https://www.diskwala.com/s/abc123
 https://www.diskwala.com/file/abc123
 https://www.diskwala.com/app/abc123
@@ -153,7 +211,7 @@ https://www.diskwala.com/f/abc123
 
 ---
 
-## 📁 File Size Limits
+# 📁 File Size Limits
 
 | Plan | Max Size |
 |---|---|
@@ -162,28 +220,29 @@ https://www.diskwala.com/f/abc123
 
 ---
 
-## 🗂️ Project Structure
+# 🗂️ Project Structure
 
-```
+```txt
 Dw/
-├── main.py           ← Full bot code
-├── requirements.txt  ← Python dependencies
-├── Procfile          ← For Heroku/Render
-├── .env.example      ← All env variables explained
-└── README.dw
+├── bot.py
+├── requirements.txt
+├── Procfile
+├── .env.example
+└── README.md
 ```
 
 ---
 
-## ⚠️ Important Notes
+# ⚠️ Important Notes
 
-- Never hardcode `BOT_TOKEN`, `API_HASH`, or `MONGO_DB_URI` in the code
-- Bot must be **admin** in `DB_CHANNEL` to upload files
-- Bot must be **admin** in the required channel to check membership
-- Files sent to users are **auto-deleted after 1 hour**
+- Never hardcode `BOT_TOKEN`, `API_HASH`, or `MONGO_DB_URI`
+- Bot must be admin in `DB_CHANNEL`
+- Bot must be admin in required channel
+- Files auto-delete after 1 hour
+- If `WEBHOOK_URL` is empty, bot runs in polling mode
 
 ---
 
-## 👨‍💻 Developer
+# 👨‍💻 Developer
 
 Made with ❤️ by [@anujbyedit](https://t.me/anujbyedit)
