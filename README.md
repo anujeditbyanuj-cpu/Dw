@@ -1,138 +1,185 @@
-# 🚀 DiskWala Downloader Bot
+# 🚀 DiskWala VIP Downloader Bot
 
-**Developer: [@anujedits76](https://t.me/anujedits76)**
+A powerful Telegram bot to download files from DiskWala and send them directly to users via Telegram.
 
-A full-featured Telegram bot that downloads files from DiskWala and sends them to users — with premium plans, DB_CHANNEL caching, multi-bot uploads, and auto video deletion.
+**Developer:** [@anujbyedit](https://t.me/anujbyedit)
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 📥 DiskWala Download | Video, audio, image, any file |
-| ⚡ Fast DB Cache | Files cached in DB_CHANNEL — instant resend |
-| 🤖 Multi-Bot Upload | Multiple support bots upload in parallel |
-| 💎 Premium System | Free (10 downloads) / Paid plans via UPI |
-| 📢 Channel Gate | Require users to join a channel before use |
-| ⏱ Auto-Delete | User's video deleted after 1 hour |
-| 📊 Admin Panel | addpremium, removepremium, checkuser, broadcast, stats |
-| 🌐 Flask Server | Health check endpoint at `/` |
-| 🔀 Webhook + Polling | Both modes supported |
+- 📥 Fast file downloading from DiskWala
+- 🎬 HD Video support with streaming
+- ⚡ DB Cache — instant resend without re-downloading
+- 💎 Premium & Free plan system
+- 📊 Download limit for free users
+- 🔐 Channel join verification
+- 📢 Admin broadcast system
+- 🤖 Multi-uploader bot support
+- 🗄️ MongoDB database integration
+- 🌍 Multi-format support (Video, Audio, Image, Document)
 
 ---
 
-## 📁 Repo Structure
+## ⚙️ Environment Variables
 
-```
-diskwala_bot/
-├── main.py           ← Full bot code
-├── requirements.txt  ← Python dependencies
-├── Procfile          ← For Heroku/Render
-├── .env.example      ← All env variables explained
-└── README.md
-```
+Set these in your hosting platform or `.env` file:
+
+| Variable | Description | Example |
+|---|---|---|
+| `BOT_TOKEN` | Your Telegram bot token | `123456:ABC...` |
+| `BOT_USERNAME` | Bot username without @ | `my_bot` |
+| `API_ID` | Telegram API ID (from my.telegram.org) | `12345678` |
+| `API_HASH` | Telegram API Hash | `abc123...` |
+| `MONGO_DB_URI` | MongoDB connection URI | `mongodb+srv://...` |
+| `DB_CHANNEL` | Channel ID for file storage | `-1001234567890` |
+| `ADMIN_USER_ID` | Main admin Telegram user ID | `123456789` |
+| `ADMIN_IDS` | Comma-separated admin IDs | `123456789,987654321` |
+| `DISKWALA_API_KEY` | DiskWala API key | `69ffffb2...` |
+| `DISKWALA_BASE_URL` | DiskWala API base URL | `https://ddudapidd.diskwala.com/api/v1` |
+| `REQUIRED_CHANNEL_USERNAME` | Channel users must join | `MyChannel` |
+| `REQUIRED_CHANNEL_URL` | Channel invite link | `https://t.me/MyChannel` |
+| `CHANNEL_LINK` | Channel link shown in bot | `MyChannel` |
+| `SUPPORT_USERNAME` | Support contact username | `MySupportBot` |
+| `WEBHOOK_URL` | Webhook URL (optional) | `https://myapp.onrender.com` |
+| `PORT` | Flask server port | `5000` |
+| `UPI_ID` | UPI ID for payments | `xxx@ybl` |
+| `UPI_NAME` | UPI payee name | `ANUJ` |
+| `PHOTO_URL` | Welcome photo URL | `https://...` |
+| `DUMMY_URL` | Replacement image after deletion | `https://...` |
+| `FREE_DOWNLOAD_LIMIT` | Free user download limit | `10` |
+| `SUPPORT_BOT_TOKENS` | Extra bot tokens (comma-separated) | `token1,token2` |
 
 ---
 
-## ⚙️ Setup
+## 📦 Requirements
 
-### 1. Clone & Install
+```
+pyrogram
+python-telegram-bot[webhooks]
+motor
+httpx
+flask
+uvloop
+```
 
+Install with:
 ```bash
-git clone https://github.com/yourrepo/diskwala-bot
-cd diskwala-bot
-pip install -r requirements.txt
-```
-
-### 2. Configure Environment
-
-Copy `.env.example` to `.env` and fill in your values:
-
-```bash
-cp .env.example .env
-nano .env
-```
-
-**Required variables:**
-- `BOT_TOKEN` — from [@BotFather](https://t.me/BotFather)
-- `DISKWALA_API_KEY` — your DiskWala API key
-
-**For full features (DB cache + multi-bot):**
-- `API_ID` + `API_HASH` — from [my.telegram.org](https://my.telegram.org)
-- `MONGO_DB_URI` — MongoDB connection string
-- `DB_CHANNEL` — Channel ID where files are cached (bot must be admin)
-
-### 3. Run
-
-```bash
-python main.py
+pip install pyrogram python-telegram-bot[webhooks] motor httpx flask uvloop
 ```
 
 ---
 
-## 🤖 Two Modes
+## 🚀 Setup & Run
 
-### Mode A — Full (Pyrogram) ✅ Recommended
-Set `API_ID`, `API_HASH`, `MONGO_DB_URI`, `DB_CHANNEL`.
+### 1. Clone the repo
+```bash
+git clone anujedits76
+cd Dw
+```
+ables
+```bash
+export BOT_TOKEN="your_bot_token"
+export API_ID="your_api_id"
+export API_HASH="your_api_hash"
+export MONGO_DB_URI="your_mongodb_uri"
+export DB_CHANNEL="-1001234567890"
+export ADMIN_USER_ID="your_user_id"
+export DISKWALA_API_KEY="your_api_key"
+```
 
-Features: DB cache, multi-bot uploads, premium system, 1-hour deletion.
-
-### Mode B — Lite (PTB fallback)
-Only set `BOT_TOKEN`. No Pyrogram/MongoDB needed.
-
-Features: Basic download & send, channel gate, stats.
+### 3. Run the bot
+```bash
+python bot.py
+```
 
 ---
 
-## 📦 Deploy to Render / Railway / Heroku
+## 🌐 Deploy on Render / Railway / Koyeb
 
-1. Set all env variables in the platform dashboard
-2. Build command: `pip install -r requirements.txt`
-3. Start command: `python main.py`
-4. For webhook mode, set `WEBHOOK_URL` to your app's public URL
+1. Create new web service
+2. Set all environment variables in the dashboard
+3. Set start command: `python bot.py`
+4. Set `WEBHOOK_URL` to your app's public URL
+5. Deploy!
+
+---
+
+## 📋 Bot Commands
+
+| Command | Description | Access |
+|---|---|---|
+| `/start` | Welcome message | All users |
+| `/help` | How to use the bot | All users |
+| `/status` | Check your plan & downloads | All users |
+| `/plans` | View premium plans | All users |
+| `/cancel` | Cancel active download | All users |
+| `/stats` | Bot statistics | Admin only |
+| `/addpremium <id> <days>` | Give premium to user | Admin only |
+| `/removepremium <id>` | Remove premium from user | Admin only |
+| `/checkuser <id>` | Check user details | Admin only |
+| `/broadcast` | Broadcast message to all users | Admin only |
 
 ---
 
 ## 💎 Premium Plans
 
-| Price | Duration |
-|---|---|
-| ₹19 | 12 days |
-| ₹29 | 21 days |
-| ₹45 | 35 days |
-| ₹99 | 99 days |
-| ₹999 | Lifetime |
-
-Admin activates via `/addpremium <user_id> <days>`
+| Plan | Price | Duration |
+|---|---|---|
+| Basic | ₹19 | 12 Days |
+| Standard | ₹29 | 21 Days |
+| Popular | ₹45 | 35 Days |
+| Pro | ₹99 | 99 Days |
+| Lifetime | ₹999 | Forever ♾️ |
 
 ---
 
-## 🛠 Admin Commands
-
-| Command | Description |
-|---|---|
-| `/addpremium <id> <days>` | Activate premium (-1 = lifetime) |
-| `/removepremium <id>` | Revoke premium |
-| `/checkuser <id>` | View user plan & stats |
-| `/broadcast` | Reply to a message to broadcast |
-| `/stats` | Bot statistics |
-
----
-
-## 🔗 DiskWala Link Formats Supported
+## 🔗 Supported DiskWala Link Formats
 
 ```
 https://www.diskwala.com/s/abc123
-https://diskwala.com/s/abc123
-https://diskwala.com/file/abc123
-https://diskwala.com/f/abc123
-https://diskwala.com/v/abc123
-https://diskwala.com/d/abc123
+https://www.diskwala.com/file/abc123
+https://www.diskwala.com/app/abc123
+https://www.diskwala.com/share/abc123
+https://www.diskwala.com/dl/abc123
+https://www.diskwala.com/download/abc123
+https://www.diskwala.com/v/abc123
+https://www.diskwala.com/f/abc123
 ```
 
 ---
 
-## 📞 Support
+## 📁 File Size Limits
 
-- Telegram: [@anujedits76](https://t.me/anujedits76)
+| Plan | Max Size |
+|---|---|
+| Free | 50 MB inline / 2 GB as document |
+| Premium | Up to 4 GB |
+
+---
+
+## 🗂️ Project Structure
+
+```
+Dw/
+├── main.py           ← Full bot code
+├── requirements.txt  ← Python dependencies
+├── Procfile          ← For Heroku/Render
+├── .env.example      ← All env variables explained
+└── README.dw
+```
+
+---
+
+## ⚠️ Important Notes
+
+- Never hardcode `BOT_TOKEN`, `API_HASH`, or `MONGO_DB_URI` in the code
+- Bot must be **admin** in `DB_CHANNEL` to upload files
+- Bot must be **admin** in the required channel to check membership
+- Files sent to users are **auto-deleted after 1 hour**
+
+---
+
+## 👨‍💻 Developer
+
+Made with ❤️ by [@anujbyedit](https://t.me/anujbyedit)
