@@ -55,12 +55,16 @@ Set these in your hosting platform or `.env` file:
 ## 📦 Requirements
 
 ```
-pyrogram
-python-telegram-bot[webhooks]
-motor
-httpx
-flask
-uvloop
+python-telegram-bot==21.6
+pyrogram==2.0.106
+TgCrypto
+httpx[http2]==0.27.0
+requests==2.32.3
+motor==3.5.1
+pymongo==4.8.0
+flask==3.0.3
+python-dotenv==1.0.1
+uvloop==0.20.0; sys_platform != "win32"
 ```
 
 Install with:
