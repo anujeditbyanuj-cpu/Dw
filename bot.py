@@ -452,7 +452,7 @@ def progress_bar(done: int, total: int, length: int = 10) -> str:
 # MongoDB helpers
 # ─────────────────────────────────────────
 async def ensure_indexes():
-    if not db:
+    if db is None:
         return
     try:
         await files_col.create_index("uid",     unique=True)
