@@ -102,8 +102,8 @@ CHANNEL_LINK = (
 )
 SUPPORT_USERNAME = os.environ.get("SUPPORT_USERNAME", "TeraBox_Support_Anuj_Bot")
 
-PHOTO_URL = os.environ.get("PHOTO_URL", "https://n.uguu.se/mEXQnxjh.jpg")
-DUMMY_URL = os.environ.get("DUMMY_URL", "https://n.uguu.se/HVeBBYah.jpg")
+PHOTO_URL = os.environ.get("PHOTO_URL", "https://l.arzfun.com/WzzzM")
+DUMMY_URL = os.environ.get("DUMMY_URL", "https://l.arzfun.com/F2mjY")
 
 UPI_ID   = os.environ.get("UPI_ID", "971916880@ybl")
 UPI_NAME = os.environ.get("UPI_NAME", "ANUJ")
