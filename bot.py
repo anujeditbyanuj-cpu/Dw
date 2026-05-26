@@ -171,10 +171,10 @@ user_active_lock: asyncio.Lock = None    # type: ignore[assignment]
 # MongoDB
 # ─────────────────────────────────────────
 mongo        = AsyncIOMotorClient(MONGO_DB_URI) if MONGO_DB_URI else None
-db           = mongo["diskwala_bot"] if mongo else None
-files_col    = db["files"]    if db else None
-users_col    = db["users"]    if db else None
-payments_col = db["payments"] if db else None
+db           = mongo["diskwala_bot"] if mongo is not None else None
+files_col    = db["files"]    if db is not None else None
+users_col    = db["users"]    if db is not None else None
+payments_col = db["payments"] if db is not None else None
 
 # ─────────────────────────────────────────
 # Stats
