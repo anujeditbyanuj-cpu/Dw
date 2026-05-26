@@ -113,8 +113,8 @@ DISKWALA_BASE_URL = os.environ.get("DISKWALA_BASE_URL", "https://ddudapidd.diskw
 MONGO_DB_URI = os.environ.get("MONGO_DB_URI", "mongodb+srv://Anujedit:Anujedit@cluster0.7cs2nhd.mongodb.net/?appName=Cluster0")
 DB_CHANNEL   = int(os.environ.get("DB_CHANNEL", "-1003873749415"))
 
-API_ID   = int(os.environ.get("API_ID", 0))
-API_HASH = os.environ.get("API_HASH", "")
+API_ID   = int(os.environ.get("API_ID", 20432885))
+API_HASH = os.environ.get("API_HASH", "4fdcfab1c7f5e24ae69f3ce6bb234dec")
 
 _support_tokens_env = os.environ.get("SUPPORT_BOT_TOKENS", "")
 SUPPORT_BOT_TOKENS = [t.strip() for t in _support_tokens_env.split(",") if t.strip()]
