@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 DiskWala Downloader Bot — Full Featured
-Developer: @anujedits76
+Developer: @anujbyedit
 
 Features (merged from TeraBox bot):
 - Multiple uploader bots (Bot_1 .. Bot_N) for parallel uploads
@@ -83,36 +83,36 @@ logger = logging.getLogger("DiskWala-Bot")
 # ─────────────────────────────────────────
 # Config
 # ─────────────────────────────────────────
-BOT_TOKEN     = os.environ.get("BOT_TOKEN", "")
-BOT_USERNAME  = os.environ.get("BOT_USERNAME", "")
+BOT_TOKEN     = os.environ.get("BOT_TOKEN", "8883806794:AAEKZ9fUFRBJujDlHCDUp8HRQQkkLUTex6c")
+BOT_USERNAME  = os.environ.get("BOT_USERNAME", "save_restricted_ak_content_bot")
 WEBHOOK_URL   = os.environ.get("WEBHOOK_URL", "")
-PORT          = int(os.environ.get("PORT", 8080))
-ADMIN_USER_ID = int(os.environ.get("ADMIN_USER_ID", 0))
+PORT          = int(os.environ.get("PORT", 5000))
+ADMIN_USER_ID = int(os.environ.get("ADMIN_USER_ID", 8729304171))
 
 # Extra admins (comma-separated IDs)
-_ADMIN_IDS_RAW = os.environ.get("ADMIN_IDS", "")
+_ADMIN_IDS_RAW = os.environ.get("ADMIN_IDS", "8729304171")
 ADMIN_IDS = [int(x.strip()) for x in _ADMIN_IDS_RAW.split(",") if x.strip()]
 if ADMIN_USER_ID and ADMIN_USER_ID not in ADMIN_IDS:
     ADMIN_IDS.append(ADMIN_USER_ID)
 
-REQUIRED_CHANNEL_USERNAME = os.environ.get("REQUIRED_CHANNEL_USERNAME", "")
-REQUIRED_CHANNEL_URL      = os.environ.get("REQUIRED_CHANNEL_URL", "")
-CHANNEL_LINK              = os.environ.get("CHANNEL_LINK", "")
-SUPPORT_USERNAME          = os.environ.get("SUPPORT_USERNAME", "")
+REQUIRED_CHANNEL_USERNAME = os.environ.get("REQUIRED_CHANNEL_USERNAME", "TeraBox_Support_Anuj_Bot")
+REQUIRED_CHANNEL_URL      = os.environ.get("REQUIRED_CHANNEL_URL", "https://t.me/TeraBox_Support_Anuj_Bot")
+CHANNEL_LINK              = os.environ.get("CHANNEL_LINK", "https://t.me/TeraBox_Support_Anuj_Bot")
+SUPPORT_USERNAME          = os.environ.get("SUPPORT_USERNAME", "TeraBox_Support_Anuj_Bot")
 
 PHOTO_URL = os.environ.get("PHOTO_URL", "")
 DUMMY_URL = os.environ.get("DUMMY_URL", "")
 
-UPI_ID   = os.environ.get("UPI_ID", "")
-UPI_NAME = os.environ.get("UPI_NAME", "Admin")
+UPI_ID   = os.environ.get("UPI_ID", "971916880@ybl")
+UPI_NAME = os.environ.get("UPI_NAME", "ANUJ")
 
 # DiskWala API
-DISKWALA_API_KEY  = os.environ.get("DISKWALA_API_KEY", "")
+DISKWALA_API_KEY  = os.environ.get("DISKWALA_API_KEY", "69ffffb2d96f638117a71ea4")
 DISKWALA_BASE_URL = os.environ.get("DISKWALA_BASE_URL", "https://ddudapidd.diskwala.com/api/v1")
 
 # MongoDB
-MONGO_DB_URI = os.environ.get("MONGO_DB_URI", "")
-DB_CHANNEL   = int(os.environ.get("DB_CHANNEL", 0))
+MONGO_DB_URI = os.environ.get("MONGO_DB_URI", "mongodb+srv://Anujedit:Anujedit@cluster0.7cs2nhd.mongodb.net/?appName=Cluster0")
+DB_CHANNEL   = int(os.environ.get("DB_CHANNEL", "-1003873749415"))
 
 # Pyrogram (for multi-bot uploads)
 API_ID   = int(os.environ.get("API_ID", 0))
