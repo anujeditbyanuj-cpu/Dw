@@ -370,14 +370,14 @@ dw_client = DiskWalaClient()
 # DiskWala Link Parser
 # ─────────────────────────────────────────
 DISKWALA_LINK_PATTERNS = [
-    r"diskwala\.com/(?:s|file|f|v|d|app|share|dl|download)/...",
+    r"diskwala\.com/(?:s|file|f|v|d|app|share|dl|download)/([a-zA-Z0-9]+)",
     r"diskwala\.com/([a-zA-Z0-9]{8,})",
 ]
 
 
 def extract_diskwala_file_id(text: str) -> str | None:
     for pattern in DISKWALA_LINK_PATTERNS:
-        m = re.search(pattern, text)
+        m = re.search(pattern, text, re.IGNORECASE)
         if m:
             return m.group(1)
     return None
@@ -389,7 +389,6 @@ def is_diskwala_url(text: str) -> bool:
 
 def make_uid(file_id: str) -> str:
     return f"dw_{file_id}"
-
 
 # ─────────────────────────────────────────
 # Format helpers
