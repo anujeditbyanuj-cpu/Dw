@@ -370,7 +370,7 @@ dw_client = DiskWalaClient()
 # DiskWala Link Parser
 # ─────────────────────────────────────────
 DISKWALA_LINK_PATTERNS = [
-    r"diskwala\.com/(?:s|file|f|v|d)/([a-zA-Z0-9_\-]+)",
+    r"diskwala\.com/(?:s|file|f|v|d|app|share|dl|download)/...",
     r"diskwala\.com/([a-zA-Z0-9]{8,})",
 ]
 
